@@ -1,0 +1,515 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B2D06FA92939F2D40086B5DD /* FlightDeckApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D06FA82939F2D40086B5DD /* FlightDeckApp.swift */; };
+		B2D06FAB2939F2D40086B5DD /* FlightListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D06FAA2939F2D40086B5DD /* FlightListView.swift */; };
+		B2D06FAD2939F2D50086B5DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2D06FAC2939F2D50086B5DD /* Assets.xcassets */; };
+		B2D06FB02939F2D50086B5DD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2D06FAF2939F2D50086B5DD /* Preview Assets.xcassets */; };
+		B2D06FB72939F2DD0086B5DD /* GoogleService.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2D06FB62939F2DD0086B5DD /* GoogleService.plist */; };
+		B2D06FBA2939F3900086B5DD /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B2D06FB92939F3900086B5DD /* FirebaseAuth */; };
+		B2D06FBC2939F3900086B5DD /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B2D06FBB2939F3900086B5DD /* FirebaseFirestore */; };
+		B2D06FBE2939F3900086B5DD /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B2D06FBD2939F3900086B5DD /* FirebaseFirestoreSwift */; };
+		B2D06FC22939F4590086B5DD /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D06FC12939F4590086B5DD /* FirebaseManager.swift */; };
+		B2D06FC52939F5020086B5DD /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D06FC42939F5020086B5DD /* Flight.swift */; };
+		B2D06FC72939F5620086B5DD /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D06FC62939F5620086B5DD /* Airport.swift */; };
+		B2D06FCB2939F8240086B5DD /* FlightListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D06FCA2939F8240086B5DD /* FlightListViewModel.swift */; };
+		B2D06FCF293A410A0086B5DD /* FlightCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D06FCE293A410A0086B5DD /* FlightCellView.swift */; };
+		B2D06FD1293A434E0086B5DD /* AirportActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D06FD0293A434E0086B5DD /* AirportActivity.swift */; };
+		B2D06FD4293A44990086B5DD /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D06FD3293A44990086B5DD /* DateExtensions.swift */; };
+		B2D06FD6293A4A650086B5DD /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D06FD5293A4A650086B5DD /* IntExtensions.swift */; };
+		B2D06FD8293A4C150086B5DD /* TimeIntervalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D06FD7293A4C150086B5DD /* TimeIntervalExtensions.swift */; };
+		B2D06FDB293A57190086B5DD /* NewFlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D06FDA293A57190086B5DD /* NewFlightView.swift */; };
+		B2D06FE0293A5C4E0086B5DD /* NewFlightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D06FDF293A5C4E0086B5DD /* NewFlightViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B2D06FA52939F2D40086B5DD /* FlightDeck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightDeck.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2D06FA82939F2D40086B5DD /* FlightDeckApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDeckApp.swift; sourceTree = "<group>"; };
+		B2D06FAA2939F2D40086B5DD /* FlightListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightListView.swift; sourceTree = "<group>"; };
+		B2D06FAC2939F2D50086B5DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B2D06FAF2939F2D50086B5DD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B2D06FB62939F2DD0086B5DD /* GoogleService.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GoogleService.plist; sourceTree = "<group>"; };
+		B2D06FC12939F4590086B5DD /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		B2D06FC42939F5020086B5DD /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
+		B2D06FC62939F5620086B5DD /* Airport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
+		B2D06FCA2939F8240086B5DD /* FlightListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightListViewModel.swift; sourceTree = "<group>"; };
+		B2D06FCE293A410A0086B5DD /* FlightCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightCellView.swift; sourceTree = "<group>"; };
+		B2D06FD0293A434E0086B5DD /* AirportActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportActivity.swift; sourceTree = "<group>"; };
+		B2D06FD3293A44990086B5DD /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		B2D06FD5293A4A650086B5DD /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
+		B2D06FD7293A4C150086B5DD /* TimeIntervalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtensions.swift; sourceTree = "<group>"; };
+		B2D06FDA293A57190086B5DD /* NewFlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFlightView.swift; sourceTree = "<group>"; };
+		B2D06FDF293A5C4E0086B5DD /* NewFlightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFlightViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B2D06FA22939F2D40086B5DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2D06FBA2939F3900086B5DD /* FirebaseAuth in Frameworks */,
+				B2D06FBC2939F3900086B5DD /* FirebaseFirestore in Frameworks */,
+				B2D06FBE2939F3900086B5DD /* FirebaseFirestoreSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B2D06F9C2939F2D40086B5DD = {
+			isa = PBXGroup;
+			children = (
+				B2D06FA72939F2D40086B5DD /* FlightDeck */,
+				B2D06FA62939F2D40086B5DD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B2D06FA62939F2D40086B5DD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B2D06FA52939F2D40086B5DD /* FlightDeck.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B2D06FA72939F2D40086B5DD /* FlightDeck */ = {
+			isa = PBXGroup;
+			children = (
+				B2D06FCC293A40F80086B5DD /* Views */,
+				B2D06FC82939F78F0086B5DD /* Screens */,
+				B2D06FC32939F4F20086B5DD /* Models */,
+				B2D06FBF2939F4400086B5DD /* Utilities */,
+				B2D06FA82939F2D40086B5DD /* FlightDeckApp.swift */,
+				B2D06FAC2939F2D50086B5DD /* Assets.xcassets */,
+				B2D06FB62939F2DD0086B5DD /* GoogleService.plist */,
+				B2D06FAE2939F2D50086B5DD /* Preview Content */,
+			);
+			path = FlightDeck;
+			sourceTree = "<group>";
+		};
+		B2D06FAE2939F2D50086B5DD /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B2D06FAF2939F2D50086B5DD /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B2D06FBF2939F4400086B5DD /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B2D06FD2293A448D0086B5DD /* Extensions */,
+				B2D06FC02939F4470086B5DD /* Managers */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		B2D06FC02939F4470086B5DD /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B2D06FC12939F4590086B5DD /* FirebaseManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		B2D06FC32939F4F20086B5DD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B2D06FC42939F5020086B5DD /* Flight.swift */,
+				B2D06FC62939F5620086B5DD /* Airport.swift */,
+				B2D06FD0293A434E0086B5DD /* AirportActivity.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B2D06FC82939F78F0086B5DD /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				B2D06FD9293A57080086B5DD /* NewFlightView */,
+				B2D06FC92939F7930086B5DD /* FlightListView */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		B2D06FC92939F7930086B5DD /* FlightListView */ = {
+			isa = PBXGroup;
+			children = (
+				B2D06FAA2939F2D40086B5DD /* FlightListView.swift */,
+				B2D06FCA2939F8240086B5DD /* FlightListViewModel.swift */,
+			);
+			path = FlightListView;
+			sourceTree = "<group>";
+		};
+		B2D06FCC293A40F80086B5DD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B2D06FDC293A57CC0086B5DD /* Buttons */,
+				B2D06FCD293A40FC0086B5DD /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B2D06FCD293A40FC0086B5DD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B2D06FCE293A410A0086B5DD /* FlightCellView.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B2D06FD2293A448D0086B5DD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B2D06FD3293A44990086B5DD /* DateExtensions.swift */,
+				B2D06FD5293A4A650086B5DD /* IntExtensions.swift */,
+				B2D06FD7293A4C150086B5DD /* TimeIntervalExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B2D06FD9293A57080086B5DD /* NewFlightView */ = {
+			isa = PBXGroup;
+			children = (
+				B2D06FDA293A57190086B5DD /* NewFlightView.swift */,
+				B2D06FDF293A5C4E0086B5DD /* NewFlightViewModel.swift */,
+			);
+			path = NewFlightView;
+			sourceTree = "<group>";
+		};
+		B2D06FDC293A57CC0086B5DD /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B2D06FA42939F2D40086B5DD /* FlightDeck */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2D06FB32939F2D50086B5DD /* Build configuration list for PBXNativeTarget "FlightDeck" */;
+			buildPhases = (
+				B2D06FA12939F2D40086B5DD /* Sources */,
+				B2D06FA22939F2D40086B5DD /* Frameworks */,
+				B2D06FA32939F2D40086B5DD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlightDeck;
+			packageProductDependencies = (
+				B2D06FB92939F3900086B5DD /* FirebaseAuth */,
+				B2D06FBB2939F3900086B5DD /* FirebaseFirestore */,
+				B2D06FBD2939F3900086B5DD /* FirebaseFirestoreSwift */,
+			);
+			productName = FlightDeck;
+			productReference = B2D06FA52939F2D40086B5DD /* FlightDeck.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B2D06F9D2939F2D40086B5DD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					B2D06FA42939F2D40086B5DD = {
+						CreatedOnToolsVersion = 14.1;
+					};
+				};
+			};
+			buildConfigurationList = B2D06FA02939F2D40086B5DD /* Build configuration list for PBXProject "FlightDeck" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B2D06F9C2939F2D40086B5DD;
+			packageReferences = (
+				B2D06FB82939F38F0086B5DD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = B2D06FA62939F2D40086B5DD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B2D06FA42939F2D40086B5DD /* FlightDeck */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B2D06FA32939F2D40086B5DD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2D06FB02939F2D50086B5DD /* Preview Assets.xcassets in Resources */,
+				B2D06FAD2939F2D50086B5DD /* Assets.xcassets in Resources */,
+				B2D06FB72939F2DD0086B5DD /* GoogleService.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B2D06FA12939F2D40086B5DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2D06FCB2939F8240086B5DD /* FlightListViewModel.swift in Sources */,
+				B2D06FC72939F5620086B5DD /* Airport.swift in Sources */,
+				B2D06FC22939F4590086B5DD /* FirebaseManager.swift in Sources */,
+				B2D06FCF293A410A0086B5DD /* FlightCellView.swift in Sources */,
+				B2D06FC52939F5020086B5DD /* Flight.swift in Sources */,
+				B2D06FDB293A57190086B5DD /* NewFlightView.swift in Sources */,
+				B2D06FD6293A4A650086B5DD /* IntExtensions.swift in Sources */,
+				B2D06FE0293A5C4E0086B5DD /* NewFlightViewModel.swift in Sources */,
+				B2D06FD4293A44990086B5DD /* DateExtensions.swift in Sources */,
+				B2D06FAB2939F2D40086B5DD /* FlightListView.swift in Sources */,
+				B2D06FD1293A434E0086B5DD /* AirportActivity.swift in Sources */,
+				B2D06FA92939F2D40086B5DD /* FlightDeckApp.swift in Sources */,
+				B2D06FD8293A4C150086B5DD /* TimeIntervalExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B2D06FB12939F2D50086B5DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B2D06FB22939F2D50086B5DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B2D06FB42939F2D50086B5DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FlightDeck/Preview Content\"";
+				DEVELOPMENT_TEAM = 8H6Z5UMFG4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = gabrielegiuli.FlightDeck;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B2D06FB52939F2D50086B5DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FlightDeck/Preview Content\"";
+				DEVELOPMENT_TEAM = 8H6Z5UMFG4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = gabrielegiuli.FlightDeck;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B2D06FA02939F2D40086B5DD /* Build configuration list for PBXProject "FlightDeck" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2D06FB12939F2D50086B5DD /* Debug */,
+				B2D06FB22939F2D50086B5DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2D06FB32939F2D50086B5DD /* Build configuration list for PBXNativeTarget "FlightDeck" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2D06FB42939F2D50086B5DD /* Debug */,
+				B2D06FB52939F2D50086B5DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B2D06FB82939F38F0086B5DD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B2D06FB92939F3900086B5DD /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2D06FB82939F38F0086B5DD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		B2D06FBB2939F3900086B5DD /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2D06FB82939F38F0086B5DD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		B2D06FBD2939F3900086B5DD /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2D06FB82939F38F0086B5DD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = B2D06F9D2939F2D40086B5DD /* Project object */;
+}
