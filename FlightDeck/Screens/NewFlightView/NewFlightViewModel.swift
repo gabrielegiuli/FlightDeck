@@ -9,8 +9,8 @@ import SwiftUI
 
 final class NewFlightViewModel: ObservableObject {
     
-    @Published var departureICAO = ""
-    @Published var arrivalICAO = ""
+    @Published var departureICAO = AirportICAO()
+    @Published var arrivalICAO = AirportICAO()
     @Published var departureDate = Date()
     @Published var arrivalDate = Date()
     @Published var activities = [AirportActivity]()
@@ -19,7 +19,29 @@ final class NewFlightViewModel: ObservableObject {
     
     private var manager = FirebaseManager.shared
     
+    func checkFormIsValid() -> Bool {
+        
+        guard departureICAO.isValid && arrivalICAO.isValid else {
+            alertItem = AlertContext.invalidICAO
+            return false
+        }
+        
+        for activity in activities {
+            guard activity.airport.ICAO.isValid else {
+                alertItem = AlertContext.invalidICAO
+                return false
+            }
+        }
+        
+        return true
+    }
+    
     func addNewFlight() -> Bool {
+        
+        guard checkFormIsValid() else {
+            return true
+        }
+        
         let newFlight = Flight(departureAirport: Airport(ICAO: departureICAO),
                                arrivalAirport: Airport(ICAO: arrivalICAO),
                                departureDate: departureDate,

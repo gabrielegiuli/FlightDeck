@@ -16,6 +16,11 @@ struct AlertItem: Identifiable {
 
 struct AlertContext {
     static let unableToUploadFlight = AlertItem(title: Text("Upload Error"),
-                                               message: Text("We were unable to upload your flight at this time. Check your internet connection and try again later!"),
+                                               message: Text("We were unable to upload your flight at this time. Try again later and if this error persists please get in contact with customer support."),
                                                 dismissButton: .default(Text("Ok")))
+    
+    static let invalidICAO = AlertItem(title: Text("Invalid Aiport"),
+                                       message: Text("Plase check that the airports' names and try again."),
+                                       dismissButton: .default(Text("Ok")))
+    
 }

@@ -16,12 +16,18 @@ struct NewFlightView: View {
         NavigationStack {
             Form {
                 Section("Departure") {
-                    TextField("ICAO", text: $viewModel.departureICAO)
+                    TextField("ICAO", text: $viewModel.departureICAO.text)
+                        .keyboardType(.alphabet)
+                        .autocorrectionDisabled()
+                        .textInputAutocapitalization(.characters)
                     DatePicker("Off-Block", selection: $viewModel.departureDate)
                 }
                 ForEach($viewModel.activities) { $activity in
                     Section {
-                        TextField("ICAO", text: $activity.airport.ICAO)
+                        TextField("ICAO", text: $activity.airport.ICAO.text)
+                            .keyboardType(.alphabet)
+                            .autocorrectionDisabled()
+                            .textInputAutocapitalization(.characters)
                         Picker("Type", selection: $activity.activityType) {
                             Text("Landing")
                             Text("Touch and Go")
@@ -46,7 +52,10 @@ struct NewFlightView: View {
                     }
                 }
                 Section("Arrival") {
-                    TextField("ICAO", text: $viewModel.arrivalICAO)
+                    TextField("ICAO", text: $viewModel.arrivalICAO.text)
+                        .keyboardType(.alphabet)
+                        .autocorrectionDisabled()
+                        .textInputAutocapitalization(.characters)
                     DatePicker("Off-Block", selection: $viewModel.arrivalDate)
                 }
                 Section {

@@ -49,13 +49,3 @@ struct Flight: Codable, Identifiable {
         self.activities = activities
     }
 }
-
-#if DEBUG
-extension Flight {
-    static let mockFlight = Flight(departureAirport: Airport(ICAO: "LIEO"),
-                                   arrivalAirport: Airport(ICAO: "LIMB"),
-                                   departureDate: Date(),
-                                   arrivalDate: Date())
-}
-#endif
-

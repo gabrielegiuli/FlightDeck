@@ -19,13 +19,13 @@ struct FlightCellView: View {
                     .foregroundColor(.secondary)
                     .bold()
                 HStack {
-                    Text(flight.departureAirport.ICAO)
+                    Text(flight.departureAirport.ICAO.text)
                         .font(.title2)
                         .fontWeight(.semibold)
                     Image(systemName: "arrow.right")
                         .font(.title2)
                         .fontWeight(.semibold)
-                    Text(flight.arrivalAirport.ICAO)
+                    Text(flight.arrivalAirport.ICAO.text)
                         .font(.title2)
                         .fontWeight(.semibold)
                     Spacer()
@@ -50,11 +50,5 @@ struct FlightCellView: View {
             }
             .padding(.leading)
         }
-    }
-}
-
-struct FlightCellView_Previews: PreviewProvider {
-    static var previews: some View {
-        FlightCellView(flight: Flight.mockFlight)
     }
 }

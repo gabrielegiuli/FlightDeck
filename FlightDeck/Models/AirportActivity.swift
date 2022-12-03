@@ -27,7 +27,7 @@ struct AirportActivity: Codable, Identifiable {
     }
     
     init() {
-        self.airport = Airport(ICAO: "")
+        self.airport = Airport(ICAO: AirportICAO())
         self.activityType = .touchAndGo
         self.numberOfLandings = 1
     }

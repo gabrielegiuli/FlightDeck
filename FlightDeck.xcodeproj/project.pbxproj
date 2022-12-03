@@ -27,6 +27,8 @@
 		B2D06FDB293A57190086B5DD /* NewFlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D06FDA293A57190086B5DD /* NewFlightView.swift */; };
 		B2D06FE0293A5C4E0086B5DD /* NewFlightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D06FDF293A5C4E0086B5DD /* NewFlightViewModel.swift */; };
 		B2D0CBE0293B61F30063FDC8 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0CBDF293B61F30063FDC8 /* Alerts.swift */; };
+		B2D0CBE2293B686E0063FDC8 /* AirportICAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0CBE1293B686E0063FDC8 /* AirportICAO.swift */; };
+		B2D0CBE4293B6D700063FDC8 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0CBE3293B6D700063FDC8 /* StringExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		B2D06FDA293A57190086B5DD /* NewFlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFlightView.swift; sourceTree = "<group>"; };
 		B2D06FDF293A5C4E0086B5DD /* NewFlightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFlightViewModel.swift; sourceTree = "<group>"; };
 		B2D0CBDF293B61F30063FDC8 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		B2D0CBE1293B686E0063FDC8 /* AirportICAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportICAO.swift; sourceTree = "<group>"; };
+		B2D0CBE3293B6D700063FDC8 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,7 @@
 		B2D06FC32939F4F20086B5DD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B2D0CBE1293B686E0063FDC8 /* AirportICAO.swift */,
 				B2D06FC42939F5020086B5DD /* Flight.swift */,
 				B2D06FC62939F5620086B5DD /* Airport.swift */,
 				B2D06FD0293A434E0086B5DD /* AirportActivity.swift */,
@@ -172,6 +177,7 @@
 				B2D06FD3293A44990086B5DD /* DateExtensions.swift */,
 				B2D06FD5293A4A650086B5DD /* IntExtensions.swift */,
 				B2D06FD7293A4C150086B5DD /* TimeIntervalExtensions.swift */,
+				B2D0CBE3293B6D700063FDC8 /* StringExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -274,10 +280,12 @@
 				B2D06FCB2939F8240086B5DD /* FlightListViewModel.swift in Sources */,
 				B2D06FC72939F5620086B5DD /* Airport.swift in Sources */,
 				B2D06FC22939F4590086B5DD /* FirebaseManager.swift in Sources */,
+				B2D0CBE2293B686E0063FDC8 /* AirportICAO.swift in Sources */,
 				B2D06FCF293A410A0086B5DD /* FlightCellView.swift in Sources */,
 				B2D06FC52939F5020086B5DD /* Flight.swift in Sources */,
 				B2D06FDB293A57190086B5DD /* NewFlightView.swift in Sources */,
 				B2D06FD6293A4A650086B5DD /* IntExtensions.swift in Sources */,
+				B2D0CBE4293B6D700063FDC8 /* StringExtensions.swift in Sources */,
 				B2D06FE0293A5C4E0086B5DD /* NewFlightViewModel.swift in Sources */,
 				B2D06FD4293A44990086B5DD /* DateExtensions.swift in Sources */,
 				B2D06FAB2939F2D40086B5DD /* FlightListView.swift in Sources */,
