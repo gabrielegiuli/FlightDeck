@@ -51,8 +51,7 @@ struct NewFlightView: View {
                 }
                 Section {
                     Button {
-                        viewModel.addNewFlight()
-                        isNewFlightViewPresented = false
+                        isNewFlightViewPresented = viewModel.addNewFlight()
                     } label: {
                         Label("Save Changes", systemImage: "square.and.arrow.down")
                     }
@@ -65,6 +64,11 @@ struct NewFlightView: View {
                 }
             }
             .navigationTitle("New Flight")
+        }
+        .alert(item: $viewModel.alertItem) { alertItem in
+            Alert(title: alertItem.title,
+                  message: alertItem.message,
+                  dismissButton: alertItem.dismissButton)
         }
     }
 }

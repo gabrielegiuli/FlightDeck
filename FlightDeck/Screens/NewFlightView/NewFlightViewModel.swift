@@ -15,15 +15,23 @@ final class NewFlightViewModel: ObservableObject {
     @Published var arrivalDate = Date()
     @Published var activities = [AirportActivity]()
     
+    @Published var alertItem: AlertItem?
+    
     private var manager = FirebaseManager.shared
     
-    func addNewFlight() {
+    func addNewFlight() -> Bool {
         let newFlight = Flight(departureAirport: Airport(ICAO: departureICAO),
                                arrivalAirport: Airport(ICAO: arrivalICAO),
                                departureDate: departureDate,
                                arrivalDate: arrivalDate,
                                activities: activities)
-        manager.addNewFlight(flight: newFlight)
+        do {
+            try manager.addNewFlight(flight: newFlight)
+            return false
+        } catch {
+            alertItem = AlertContext.unableToUploadFlight
+            return true
+        }
     }
     
     func addActivity() {

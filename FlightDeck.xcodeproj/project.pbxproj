@@ -26,6 +26,7 @@
 		B2D06FD8293A4C150086B5DD /* TimeIntervalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D06FD7293A4C150086B5DD /* TimeIntervalExtensions.swift */; };
 		B2D06FDB293A57190086B5DD /* NewFlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D06FDA293A57190086B5DD /* NewFlightView.swift */; };
 		B2D06FE0293A5C4E0086B5DD /* NewFlightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D06FDF293A5C4E0086B5DD /* NewFlightViewModel.swift */; };
+		B2D0CBE0293B61F30063FDC8 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0CBDF293B61F30063FDC8 /* Alerts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		B2D06FD7293A4C150086B5DD /* TimeIntervalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtensions.swift; sourceTree = "<group>"; };
 		B2D06FDA293A57190086B5DD /* NewFlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFlightView.swift; sourceTree = "<group>"; };
 		B2D06FDF293A5C4E0086B5DD /* NewFlightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFlightViewModel.swift; sourceTree = "<group>"; };
+		B2D0CBDF293B61F30063FDC8 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			children = (
 				B2D06FD2293A448D0086B5DD /* Extensions */,
 				B2D06FC02939F4470086B5DD /* Managers */,
+				B2D0CBDF293B61F30063FDC8 /* Alerts.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				B2D06FAB2939F2D40086B5DD /* FlightListView.swift in Sources */,
 				B2D06FD1293A434E0086B5DD /* AirportActivity.swift in Sources */,
 				B2D06FA92939F2D40086B5DD /* FlightDeckApp.swift in Sources */,
+				B2D0CBE0293B61F30063FDC8 /* Alerts.swift in Sources */,
 				B2D06FD8293A4C150086B5DD /* TimeIntervalExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

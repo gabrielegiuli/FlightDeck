@@ -30,12 +30,11 @@ final class FirebaseManager: ObservableObject {
         }
     }
     
-    func addNewFlight(flight: Flight) {
+    func addNewFlight(flight: Flight) throws {
         do {
             let _ = try database.collection("flights").addDocument(from: flight)
-        }
-        catch {
-            print("There was an error while trying to save a task \(error.localizedDescription).")
+        } catch {
+            throw error
         }
     }
     
