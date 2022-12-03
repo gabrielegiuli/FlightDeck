@@ -18,6 +18,7 @@ struct Flight: Codable, Identifiable {
     private var departureTimestamp: Timestamp
     private var arrivalTimestamp: Timestamp
     var activities: [AirportActivity]?
+    var userId: String?
     
     var departureDate: Date {
         departureTimestamp.dateValue()
@@ -39,7 +40,7 @@ struct Flight: Codable, Identifiable {
         arrivalDate.timeIntervalSince(departureDate)
     }
     
-    init(id: String? = nil, createdTime: Timestamp? = nil, departureAirport: Airport, arrivalAirport: Airport, departureDate: Date, arrivalDate: Date, activities: [AirportActivity]? = nil) {
+    init(id: String? = nil, createdTime: Timestamp? = nil, departureAirport: Airport, arrivalAirport: Airport, departureDate: Date, arrivalDate: Date, activities: [AirportActivity]? = nil, userId: String? = nil) {
         self.id = id
         self.createdTime = createdTime
         self.departureAirport = departureAirport
@@ -47,5 +48,6 @@ struct Flight: Codable, Identifiable {
         self.departureTimestamp = Timestamp(date: departureDate)
         self.arrivalTimestamp = Timestamp(date: arrivalDate)
         self.activities = activities
+        self.userId = userId
     }
 }

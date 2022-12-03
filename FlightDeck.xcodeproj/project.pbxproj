@@ -29,6 +29,7 @@
 		B2D0CBE0293B61F30063FDC8 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0CBDF293B61F30063FDC8 /* Alerts.swift */; };
 		B2D0CBE2293B686E0063FDC8 /* AirportICAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0CBE1293B686E0063FDC8 /* AirportICAO.swift */; };
 		B2D0CBE4293B6D700063FDC8 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0CBE3293B6D700063FDC8 /* StringExtensions.swift */; };
+		B2D0CBE9293BA2610063FDC8 /* FError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D0CBE8293BA2610063FDC8 /* FError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		B2D0CBDF293B61F30063FDC8 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		B2D0CBE1293B686E0063FDC8 /* AirportICAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportICAO.swift; sourceTree = "<group>"; };
 		B2D0CBE3293B6D700063FDC8 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		B2D0CBE8293BA2610063FDC8 /* FError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,9 +112,9 @@
 		B2D06FBF2939F4400086B5DD /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				B2D0CBE7293BA24B0063FDC8 /* Alerts */,
 				B2D06FD2293A448D0086B5DD /* Extensions */,
 				B2D06FC02939F4470086B5DD /* Managers */,
-				B2D0CBDF293B61F30063FDC8 /* Alerts.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -196,6 +198,15 @@
 			children = (
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		B2D0CBE7293BA24B0063FDC8 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				B2D0CBDF293B61F30063FDC8 /* Alerts.swift */,
+				B2D0CBE8293BA2610063FDC8 /* FError.swift */,
+			);
+			path = Alerts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +294,7 @@
 				B2D0CBE2293B686E0063FDC8 /* AirportICAO.swift in Sources */,
 				B2D06FCF293A410A0086B5DD /* FlightCellView.swift in Sources */,
 				B2D06FC52939F5020086B5DD /* Flight.swift in Sources */,
+				B2D0CBE9293BA2610063FDC8 /* FError.swift in Sources */,
 				B2D06FDB293A57190086B5DD /* NewFlightView.swift in Sources */,
 				B2D06FD6293A4A650086B5DD /* IntExtensions.swift in Sources */,
 				B2D0CBE4293B6D700063FDC8 /* StringExtensions.swift in Sources */,
