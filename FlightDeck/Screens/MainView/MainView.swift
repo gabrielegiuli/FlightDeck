@@ -21,7 +21,9 @@ struct MainView: View {
         } else {
             TabView {
                 FlightListView()
-                    .tabItem { Label("Flights", systemImage: "paperplane") }
+                    .tabItem { Label("Logbook", systemImage: "list.bullet.clipboard.fill") }
+                PlaneListView()
+                    .tabItem { Label("Planes", systemImage: "airplane") }
                 AccountView()
                     .tabItem { Label("Account", systemImage: "person.crop.circle.fill")}
             }

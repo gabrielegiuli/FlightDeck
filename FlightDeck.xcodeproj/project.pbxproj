@@ -10,6 +10,7 @@
 		B28A90DA293CCA6A00EF7BBD /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A90D9293CCA6A00EF7BBD /* AccountView.swift */; };
 		B28A90DC293CCA7300EF7BBD /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A90DB293CCA7300EF7BBD /* AccountViewModel.swift */; };
 		B28A90DE293CE10700EF7BBD /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A90DD293CE10700EF7BBD /* UserInformation.swift */; };
+		B28A90E1293D0EEC00EF7BBD /* PlaneListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A90E0293D0EEC00EF7BBD /* PlaneListView.swift */; };
 		B2D06FA92939F2D40086B5DD /* FlightDeckApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D06FA82939F2D40086B5DD /* FlightDeckApp.swift */; };
 		B2D06FAB2939F2D40086B5DD /* FlightListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D06FAA2939F2D40086B5DD /* FlightListView.swift */; };
 		B2D06FAD2939F2D50086B5DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2D06FAC2939F2D50086B5DD /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 		B28A90D9293CCA6A00EF7BBD /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		B28A90DB293CCA7300EF7BBD /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		B28A90DD293CE10700EF7BBD /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
+		B28A90E0293D0EEC00EF7BBD /* PlaneListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneListView.swift; sourceTree = "<group>"; };
 		B2D06FA52939F2D40086B5DD /* FlightDeck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightDeck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2D06FA82939F2D40086B5DD /* FlightDeckApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDeckApp.swift; sourceTree = "<group>"; };
 		B2D06FAA2939F2D40086B5DD /* FlightListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightListView.swift; sourceTree = "<group>"; };
@@ -91,6 +93,14 @@
 				B28A90DB293CCA7300EF7BBD /* AccountViewModel.swift */,
 			);
 			path = AccountView;
+			sourceTree = "<group>";
+		};
+		B28A90DF293D0ED200EF7BBD /* PlaneListView */ = {
+			isa = PBXGroup;
+			children = (
+				B28A90E0293D0EEC00EF7BBD /* PlaneListView.swift */,
+			);
+			path = PlaneListView;
 			sourceTree = "<group>";
 		};
 		B2D06F9C2939F2D40086B5DD = {
@@ -165,6 +175,7 @@
 		B2D06FC82939F78F0086B5DD /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				B28A90DF293D0ED200EF7BBD /* PlaneListView */,
 				B28A90D8293CCA5E00EF7BBD /* AccountView */,
 				B2D0CBEA293C1A740063FDC8 /* MainView */,
 				B2D06FD9293A57080086B5DD /* NewFlightView */,
@@ -338,6 +349,7 @@
 				B2D06FC72939F5620086B5DD /* Airport.swift in Sources */,
 				B2D06FC22939F4590086B5DD /* FirebaseManager.swift in Sources */,
 				B28A90DA293CCA6A00EF7BBD /* AccountView.swift in Sources */,
+				B28A90E1293D0EEC00EF7BBD /* PlaneListView.swift in Sources */,
 				B2D0CBE2293B686E0063FDC8 /* AirportICAO.swift in Sources */,
 				B2D06FCF293A410A0086B5DD /* FlightCellView.swift in Sources */,
 				B2D06FC52939F5020086B5DD /* Flight.swift in Sources */,
