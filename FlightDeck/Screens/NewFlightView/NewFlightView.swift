@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NewFlightView: View {
-
+    
     @Binding var isNewFlightViewPresented: Bool
     @StateObject var viewModel = NewFlightViewModel()
     

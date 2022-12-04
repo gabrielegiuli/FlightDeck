@@ -8,5 +8,5 @@
 import Foundation
 
 enum FError: Error {
-    case userNotSignedIn
+case userNotSignedIn
 }

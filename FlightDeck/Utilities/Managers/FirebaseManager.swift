@@ -19,11 +19,23 @@ final class FirebaseManager: ObservableObject {
     @Published var flights: [Flight] = []
     @Published var user: User?
     
-    private init() {
-        signIn()
+    var isLoggedIn: Bool {
+        user != nil
     }
     
-    private func signIn() {
+    private init() {
+        signInAnonymously()
+    }
+    
+    func signOut() throws {
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            throw error
+        }
+    }
+    
+    private func signInAnonymously() {
         Auth.auth().signInAnonymously()
         registerStateListener()
     }
@@ -51,12 +63,12 @@ final class FirebaseManager: ObservableObject {
             .whereField("userId", isEqualTo: userId)
             .order(by: "createdTime", descending: true)
             .addSnapshotListener { (querySnapshot, error) in
-            if let querySnapshot = querySnapshot {
-                self.flights = querySnapshot.documents.compactMap { document -> Flight? in
-                    try? document.data(as: Flight.self)
+                if let querySnapshot = querySnapshot {
+                    self.flights = querySnapshot.documents.compactMap { document -> Flight? in
+                        try? document.data(as: Flight.self)
+                    }
                 }
             }
-        }
     }
     
     func addNewFlight(flight: Flight) throws {
