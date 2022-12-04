@@ -15,7 +15,13 @@ struct MainView: View {
         if viewModel.isShowingLoginView {
             LoginView(isShowingLoginView: $viewModel.isShowingLoginView)
         } else {
-            FlightListView()
+            TabView {
+                FlightListView()
+                    .tabItem { Label("Flights", systemImage: "paperplane") }
+                AccountView()
+                    .tabItem { Label("Account", systemImage: "person.crop.circle.fill")}
+                
+            }
         }
     }
 }

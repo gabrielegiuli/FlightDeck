@@ -26,14 +26,18 @@ struct LoginView: View {
                     .bold()
                     .padding()
                 VStack(alignment: .center) {
-                    TextField("Username", text: $viewModel.usernameString)
+                    TextField("Username", text: $viewModel.emailString)
                         .textFieldStyle(.roundedBorder)
+                        .keyboardType(.emailAddress)
+                        .textInputAutocapitalization(.none)
+                        .autocorrectionDisabled()
                         .padding([.leading, .trailing])
                     SecureField("Password", text: $viewModel.passwordString)
                         .textFieldStyle(.roundedBorder)
+                        .autocorrectionDisabled()
                         .padding()
                     Button {
-                        
+                        viewModel.logIn()
                     } label: {
                         Text("Log-In")
                             .font(.title3)
@@ -44,7 +48,7 @@ struct LoginView: View {
                     Button {
                         
                     } label: {
-                        Text("Register")
+                        Text("Sign-Up")
                             .font(.title3)
                     }
                     .buttonStyle(.bordered)

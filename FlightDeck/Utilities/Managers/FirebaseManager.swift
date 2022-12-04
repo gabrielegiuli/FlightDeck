@@ -24,7 +24,7 @@ final class FirebaseManager: ObservableObject {
     }
     
     private init() {
-        signInAnonymously()
+        registerStateListener()
     }
     
     func signOut() throws {
@@ -35,9 +35,10 @@ final class FirebaseManager: ObservableObject {
         }
     }
     
-    private func signInAnonymously() {
-        Auth.auth().signInAnonymously()
-        registerStateListener()
+    func signIn(withEmail email: String, password: String, completed: @escaping (Error?) -> Void ) {
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            completed(error)
+        }
     }
     
     private func registerStateListener() {

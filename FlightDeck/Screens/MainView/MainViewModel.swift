@@ -6,14 +6,20 @@
 //
 
 import Foundation
+import Combine
 
 final class MainViewModel: ObservableObject {
     
+    @Published var isShowingLoginView: Bool = false
+    
     var manager = FirebaseManager.shared
-    @Published var isShowingLoginView: Bool
+    private var cancellables = Set<AnyCancellable>()
     
     init() {
-        isShowingLoginView = manager.isLoggedIn
+        manager.$user
+            .map({ $0 == nil })
+            .assign(to: \.isShowingLoginView, on: self)
+            .store(in: &cancellables)
     }
     
 }
