@@ -7,10 +7,11 @@
 
 import Foundation
 
-enum ActivityType: String, Codable {
+enum ActivityType: String, Codable, CaseIterable, Identifiable {
     case landing = "Landing"
     case touchAndGo = "Touch and Go"
     case stopAndGo = "Stop and Go"
+    var id: String { self.rawValue }
 }
 
 struct AirportActivity: Codable, Identifiable {

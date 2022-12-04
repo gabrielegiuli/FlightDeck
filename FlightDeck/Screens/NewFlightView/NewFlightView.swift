@@ -29,9 +29,10 @@ struct NewFlightView: View {
                             .autocorrectionDisabled()
                             .textInputAutocapitalization(.characters)
                         Picker("Type", selection: $activity.activityType) {
-                            Text("Landing")
-                            Text("Touch and Go")
-                            Text("Stop and Go")
+                            ForEach(ActivityType.allCases) { activity in
+                                Text(activity.rawValue)
+                                    .tag(activity)
+                            }
                         }
                         Stepper("\(activity.numberOfLandings) Landing\(activity.numberOfLandings == 1 ? "" : "s")", value: $activity.numberOfLandings, in: 1...10)
                     }
