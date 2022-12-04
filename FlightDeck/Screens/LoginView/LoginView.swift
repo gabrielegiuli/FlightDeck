@@ -46,7 +46,7 @@ struct LoginView: View {
                     .accentColor(.indigo)
                     .padding()
                     Button {
-                        
+                        viewModel.register()
                     } label: {
                         Text("Sign-Up")
                             .font(.title3)

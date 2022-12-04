@@ -33,11 +33,19 @@ struct AlertContext {
                                         message: Text("The email address you have entered is not valid."),
                                         dismissButton: .default(Text("Ok")))
     
+    static let emailAlreadyInUse = AlertItem(title: Text("Invalid Email"),
+                                             message: Text("The email address you have entered is already associated to an existing account"),
+                                             dismissButton: .default(Text("Ok")))
+    
     static let wrongPassword = AlertItem(title: Text("Wrong Password"),
                                          message: Text("The password you have entered is not correct. Try with another password."),
                                          dismissButton: .default(Text("Ok")))
     
     static let userDisabled = AlertItem(title: Text("User Disabled"),
                                         message: Text("This user has been disabled by an administrator. Get in contact with customer support."),
+                                        dismissButton: .default(Text("Ok")))
+    
+    static let weakPassword = AlertItem(title: Text("Weak Password"),
+                                        message: Text("The chosen password is too weak. The password should be at least six characters long."),
                                         dismissButton: .default(Text("Ok")))
 }

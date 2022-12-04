@@ -36,7 +36,13 @@ final class FirebaseManager: ObservableObject {
         }
     }
     
-    func signIn(withEmail email: String, password: String, completed: @escaping (Error?) -> Void ) {
+    func register(withEmail email: String, password: String, completed: @escaping (Error?) -> Void) {
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            completed(error)
+        }
+    }
+    
+    func signIn(withEmail email: String, password: String, completed: @escaping (Error?) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             completed(error)
         }
