@@ -23,4 +23,21 @@ struct AlertContext {
                                        message: Text("Plase check that the airports' names and try again."),
                                        dismissButton: .default(Text("Ok")))
     
+    static func localizedError(title: String, error: Error) -> AlertItem {
+        AlertItem(title: Text(title),
+                  message: Text(error.localizedDescription),
+                  dismissButton: .default(Text("OK")))
+    }
+    
+    static let invalidEmail = AlertItem(title: Text("Invalid Email"),
+                                        message: Text("The email address you have entered is not valid."),
+                                        dismissButton: .default(Text("Ok")))
+    
+    static let wrongPassword = AlertItem(title: Text("Wrong Password"),
+                                         message: Text("The password you have entered is not correct. Try with another password."),
+                                         dismissButton: .default(Text("Ok")))
+    
+    static let userDisabled = AlertItem(title: Text("User Disabled"),
+                                        message: Text("This user has been disabled by an administrator. Get in contact with customer support."),
+                                        dismissButton: .default(Text("Ok")))
 }

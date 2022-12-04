@@ -14,7 +14,7 @@ struct LoginView: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.indigo, .gray]),
+            LinearGradient(gradient: Gradient(colors: [.indigo, .cyan]),
                            startPoint: .topLeading,
                            endPoint: .bottomTrailing)
             .ignoresSafeArea(.all)
@@ -26,10 +26,10 @@ struct LoginView: View {
                     .bold()
                     .padding()
                 VStack(alignment: .center) {
-                    TextField("Username", text: $viewModel.emailString)
+                    TextField("E-mail", text: $viewModel.emailString)
                         .textFieldStyle(.roundedBorder)
                         .keyboardType(.emailAddress)
-                        .textInputAutocapitalization(.none)
+                        .textInputAutocapitalization(.never)
                         .autocorrectionDisabled()
                         .padding([.leading, .trailing])
                     SecureField("Password", text: $viewModel.passwordString)
@@ -54,11 +54,16 @@ struct LoginView: View {
                     .buttonStyle(.bordered)
                     .accentColor(.indigo)
                 }
-                .frame(width: 250, height: 350)
+                .frame(width: 270, height: 320)
                 .background(.white)
                 .cornerRadius(10)
                 Spacer()
             }
+        }
+        .alert(item: $viewModel.alertItem) { alertItem in
+            Alert(title: alertItem.title,
+                  message: alertItem.message,
+                  dismissButton: alertItem.dismissButton)
         }
     }
 }

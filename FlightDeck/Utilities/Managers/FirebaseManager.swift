@@ -18,6 +18,7 @@ final class FirebaseManager: ObservableObject {
     
     @Published var flights: [Flight] = []
     @Published var user: User?
+    @Published var hasCheckedUser = false
     
     var isLoggedIn: Bool {
         user != nil
@@ -44,6 +45,7 @@ final class FirebaseManager: ObservableObject {
     private func registerStateListener() {
         Auth.auth().addStateDidChangeListener { (auth, user) in // (4)
             print("Sign in state has changed.")
+            self.hasCheckedUser = true
             self.user = user
             
             if let user = user {

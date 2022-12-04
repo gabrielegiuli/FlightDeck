@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B28A90DA293CCA6A00EF7BBD /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A90D9293CCA6A00EF7BBD /* AccountView.swift */; };
 		B28A90DC293CCA7300EF7BBD /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A90DB293CCA7300EF7BBD /* AccountViewModel.swift */; };
+		B28A90DE293CE10700EF7BBD /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A90DD293CE10700EF7BBD /* UserInformation.swift */; };
 		B2D06FA92939F2D40086B5DD /* FlightDeckApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D06FA82939F2D40086B5DD /* FlightDeckApp.swift */; };
 		B2D06FAB2939F2D40086B5DD /* FlightListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D06FAA2939F2D40086B5DD /* FlightListView.swift */; };
 		B2D06FAD2939F2D50086B5DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2D06FAC2939F2D50086B5DD /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		B28A90D9293CCA6A00EF7BBD /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		B28A90DB293CCA7300EF7BBD /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		B28A90DD293CE10700EF7BBD /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		B2D06FA52939F2D40086B5DD /* FlightDeck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightDeck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2D06FA82939F2D40086B5DD /* FlightDeckApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDeckApp.swift; sourceTree = "<group>"; };
 		B2D06FAA2939F2D40086B5DD /* FlightListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightListView.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				B2D06FC42939F5020086B5DD /* Flight.swift */,
 				B2D06FC62939F5620086B5DD /* Airport.swift */,
 				B2D06FD0293A434E0086B5DD /* AirportActivity.swift */,
+				B28A90DD293CE10700EF7BBD /* UserInformation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				B2D06FD6293A4A650086B5DD /* IntExtensions.swift in Sources */,
 				B28A90DC293CCA7300EF7BBD /* AccountViewModel.swift in Sources */,
 				B2D0CBF0293C1C610063FDC8 /* LoginView.swift in Sources */,
+				B28A90DE293CE10700EF7BBD /* UserInformation.swift in Sources */,
 				B2D0CBE4293B6D700063FDC8 /* StringExtensions.swift in Sources */,
 				B2D06FE0293A5C4E0086B5DD /* NewFlightViewModel.swift in Sources */,
 				B2D06FD4293A44990086B5DD /* DateExtensions.swift in Sources */,

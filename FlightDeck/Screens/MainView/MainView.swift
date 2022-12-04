@@ -12,16 +12,20 @@ struct MainView: View {
     @StateObject var viewModel = MainViewModel()
     
     var body: some View {
-        if viewModel.isShowingLoginView {
+        if viewModel.isUserLoading {
+            ProgressView()
+                .scaleEffect(2)
+        } else if viewModel.isShowingLoginView {
             LoginView(isShowingLoginView: $viewModel.isShowingLoginView)
+                .transition(AnyTransition.opacity.animation(.easeInOut(duration: 1.0)))
         } else {
             TabView {
                 FlightListView()
                     .tabItem { Label("Flights", systemImage: "paperplane") }
                 AccountView()
                     .tabItem { Label("Account", systemImage: "person.crop.circle.fill")}
-                
             }
+            .transition(AnyTransition.opacity.animation(.easeInOut(duration: 1.0)))
         }
     }
 }
