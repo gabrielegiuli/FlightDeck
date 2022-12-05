@@ -14,9 +14,10 @@ final class FirebaseManager: ObservableObject {
     
     static let shared = FirebaseManager()
     private var database = Firestore.firestore()
-    private var listenerRegistration: ListenerRegistration?
+    private var listenerRegistrations: [ListenerRegistration] = []
     
     @Published var flights: [Flight] = []
+    @Published var userInformation: UserInformation?
     @Published var user: User?
     @Published var hasCheckedUser = false
     
@@ -53,9 +54,10 @@ final class FirebaseManager: ObservableObject {
             print("Sign in state has changed.")
             self.hasCheckedUser = true
             self.user = user
+            self.resetData()
             
             if let user = user {
-                self.addFlightsListener(withUserId: user.uid)
+                self.addListeners(withUserId: user.uid)
                 let anonymous = user.isAnonymous ? "anonymously " : ""
                 print("User signed in \(anonymous)with user ID \(user.uid).")
             }
@@ -65,9 +67,32 @@ final class FirebaseManager: ObservableObject {
         }
     }
     
-    func addFlightsListener(withUserId userId: String) {
-        self.listenerRegistration?.remove()
-        self.listenerRegistration = database
+    private func resetData() {
+        for listenerRegistration in listenerRegistrations {
+            listenerRegistration.remove()
+        }
+        flights = []
+        userInformation = nil
+    }
+    
+    private func addListeners(withUserId userId: String ) {
+        listenerRegistrations.append(addFlightsListener(withUserId: userId))
+        listenerRegistrations.append(addUserInformationListener(withUserId: userId))
+    }
+    
+    private func addUserInformationListener(withUserId userId: String) -> ListenerRegistration {
+        database
+            .collection("userInformations")
+            .document(userId)
+            .addSnapshotListener { (querySnapshot, error) in
+                if let querySnapshot = querySnapshot {
+                    self.userInformation = try? querySnapshot.data(as: UserInformation.self)
+                }
+            }
+    }
+    
+    private func addFlightsListener(withUserId userId: String) -> ListenerRegistration {
+        database
             .collection("flights")
             .whereField("userId", isEqualTo: userId)
             .order(by: "createdTime", descending: true)
@@ -86,6 +111,18 @@ final class FirebaseManager: ObservableObject {
                 var newFlight = flight
                 newFlight.userId = user.uid
                 let _ = try database.collection("flights").addDocument(from: newFlight)
+            } catch {
+                throw error
+            }
+        } else {
+            throw FError.userNotSignedIn
+        }
+    }
+    
+    func saveUserInformation(userInformation: UserInformation) throws {
+        if let user = user {
+            do {
+                let _ = try database.collection("userInformations").document(user.uid).setData(from: userInformation)
             } catch {
                 throw error
             }

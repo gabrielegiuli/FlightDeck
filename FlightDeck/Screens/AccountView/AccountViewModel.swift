@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 final class AccountViewModel: ObservableObject {
     
@@ -15,11 +16,16 @@ final class AccountViewModel: ObservableObject {
     @Published var userLastName: String = ""
     @Published var userBirthDate = Date()
     
+    func loadUserData() {
+        userFirstName = manager.userInformation?.firstName ?? ""
+        userLastName = manager.userInformation?.lastName ?? ""
+    }
+    
     func logOut() {
         try? manager.signOut()
     }
     
     func saveChanges() {
-        
+        try? manager.saveUserInformation(userInformation: UserInformation(firstName: userFirstName, lastName: userLastName))
     }
 }

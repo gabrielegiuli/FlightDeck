@@ -12,21 +12,27 @@ struct AccountView: View {
     @StateObject var viewModel = AccountViewModel()
     
     var body: some View {
-        Form {
-            Section("User Details"){
-                TextField("First Name", text: $viewModel.userFirstName)
-                TextField("Last Name", text: $viewModel.userLastName)
-                DatePicker("Birthday", selection: $viewModel.userBirthDate, displayedComponents: .date)
+        NavigationStack {
+            Form {
+                Section("User Details"){
+                    TextField("First Name", text: $viewModel.userFirstName)
+                    TextField("Last Name", text: $viewModel.userLastName)
+                    DatePicker("Birthday", selection: $viewModel.userBirthDate, displayedComponents: .date)
+                }
+                Button {
+                    viewModel.logOut()
+                } label: {
+                    Label("Log-Out", systemImage: "person.crop.circle.fill.badge.xmark")
+                        .foregroundColor(.red)
+                }
             }
-            Button {
-                viewModel.logOut()
-            } label: {
-                Label("Log-Out", systemImage: "person.crop.circle.fill.badge.xmark")
-                    .foregroundColor(.red)
-            }
+            .navigationTitle("🧑‍✈️ Account")
         }
         .onDisappear {
             viewModel.saveChanges()
+        }
+        .onAppear {
+            viewModel.loadUserData()
         }
     }
 }
