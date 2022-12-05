@@ -17,8 +17,10 @@ final class AccountViewModel: ObservableObject {
     @Published var userBirthDate = Date()
     
     func loadUserData() {
-        userFirstName = manager.userInformation?.firstName ?? ""
-        userLastName = manager.userInformation?.lastName ?? ""
+        manager.readUserInformation { userInformation in
+            self.userFirstName = userInformation?.firstName ?? ""
+            self.userLastName = userInformation?.lastName ?? ""
+        }
     }
     
     func logOut() {

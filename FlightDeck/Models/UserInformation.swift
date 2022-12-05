@@ -8,6 +8,6 @@
 import Foundation
 
 struct UserInformation: Codable {
-    var firstName: String
-    var lastName: String
+    var firstName: String = ""
+    var lastName: String = ""
 }

@@ -17,7 +17,6 @@ final class FirebaseManager: ObservableObject {
     private var listenerRegistrations: [ListenerRegistration] = []
     
     @Published var flights: [Flight] = []
-    @Published var userInformation: UserInformation?
     @Published var user: User?
     @Published var hasCheckedUser = false
     
@@ -38,7 +37,10 @@ final class FirebaseManager: ObservableObject {
     }
     
     func register(withEmail email: String, password: String, completed: @escaping (Error?) -> Void) {
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+        Auth.auth().createUser(withEmail: email, password: password) { [self] authResult, error in
+            if error == nil, let uid = authResult?.user.uid {
+                try? database.collection("userInformations").document(uid).setData(from: UserInformation())
+            }
             completed(error)
         }
     }
@@ -71,24 +73,26 @@ final class FirebaseManager: ObservableObject {
         for listenerRegistration in listenerRegistrations {
             listenerRegistration.remove()
         }
+        listenerRegistrations = []
         flights = []
-        userInformation = nil
     }
     
     private func addListeners(withUserId userId: String ) {
         listenerRegistrations.append(addFlightsListener(withUserId: userId))
-        listenerRegistrations.append(addUserInformationListener(withUserId: userId))
+        // Add planes listener
     }
     
-    private func addUserInformationListener(withUserId userId: String) -> ListenerRegistration {
-        database
-            .collection("userInformations")
-            .document(userId)
-            .addSnapshotListener { (querySnapshot, error) in
-                if let querySnapshot = querySnapshot {
-                    self.userInformation = try? querySnapshot.data(as: UserInformation.self)
+    func readUserInformation(completed: @escaping (UserInformation?) -> Void) {
+        if let user = user {
+            database
+                .collection("userInformations")
+                .document(user.uid)
+                .getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        completed(try? document.data(as: UserInformation.self))
+                    }
                 }
-            }
+        }
     }
     
     private func addFlightsListener(withUserId userId: String) -> ListenerRegistration {
