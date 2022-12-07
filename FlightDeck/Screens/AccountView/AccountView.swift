@@ -17,7 +17,9 @@ struct AccountView: View {
             Form {
                 Section("User Details"){
                     TextField("First Name", text: $viewModel.userFirstName)
+                        .autocorrectionDisabled()
                     TextField("Last Name", text: $viewModel.userLastName)
+                        .autocorrectionDisabled()
                     DatePicker("Birthday", selection: $viewModel.userBirthDate, displayedComponents: .date)
                 }
                 Section {
