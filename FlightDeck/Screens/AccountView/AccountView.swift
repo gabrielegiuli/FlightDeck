@@ -10,25 +10,59 @@ import MessageUI
 
 struct AccountView: View {
     
-    @StateObject var viewModel = AccountViewModel()
+    @StateObject private var viewModel = AccountViewModel()
+    @FocusState private var focusedTextField: FormTextField?
+    
+    enum FormTextField {
+        case firstName, lastName
+    }
     
     var body: some View {
         NavigationStack {
             Form {
-                Section("User Details"){
+                Section("User Details") {
                     TextField("First Name", text: $viewModel.userFirstName)
+                        .focused($focusedTextField, equals: .firstName)
+                        .keyboardType(.alphabet)
+                        .submitLabel(.continue)
                         .autocorrectionDisabled()
                     TextField("Last Name", text: $viewModel.userLastName)
+                        .focused($focusedTextField, equals: .lastName)
+                        .keyboardType(.alphabet)
+                        .submitLabel(.done)
                         .autocorrectionDisabled()
                     DatePicker("Birthday", selection: $viewModel.userBirthDate, displayedComponents: .date)
                 }
-                Section {
+                .onSubmit {
+                    switch focusedTextField {
+                    case .firstName:
+                        focusedTextField = .lastName
+                    case .lastName:
+                        focusedTextField = nil
+                    default:
+                        break
+                    }
+                }
+                Section("More about FlightDeck") {
                     Button {
-                        viewModel.isShowingMailView = true
+                        viewModel.sheetViewContext = .contactUs
+                        viewModel.isShowingSheetView = true
                     } label: {
                         Label("Contact Us", systemImage: "square.and.pencil")
                     }
                     .disabled(!MFMailComposeViewController.canSendMail())
+                    Button {
+                        viewModel.sheetViewContext = .privacyPolicy
+                        viewModel.isShowingSheetView = true
+                    } label: {
+                        Label("Privacy Policy", systemImage: "doc")
+                    }
+                    Button {
+                        viewModel.sheetViewContext = .credits
+                        viewModel.isShowingSheetView = true
+                    } label: {
+                        Label("Credits", systemImage: "hammer")
+                    }
                 }
                 Button {
                     viewModel.logOut()
@@ -38,16 +72,31 @@ struct AccountView: View {
                 }
             }
             .navigationTitle("🧑‍✈️ Account")
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button("Dismiss") {
+                        focusedTextField = nil
+                    }
+                }
+            }
+            
         }
         .onAppear { viewModel.refreshUserData() }
-        .alert(item: $viewModel.alertItem) { alertItem in
-            Alert(title: alertItem.title,
-                  message: alertItem.message,
-                  dismissButton: alertItem.dismissButton)
+        .onDisappear {
+            viewModel.saveUserData()
+            focusedTextField = .none
         }
-        .sheet(isPresented: $viewModel.isShowingMailView) {
-            MailView(result: self.$viewModel.result,
-                     mailData: MailContext().supportEmail)
+        .sheet(isPresented: $viewModel.isShowingSheetView) {
+            switch viewModel.sheetViewContext {
+            case .contactUs:
+                MailView(result: self.$viewModel.result,
+                         mailData: MailContext().supportEmail)
+            case .credits:
+                SafariView(url: URL(string: "https://google.com")!)
+            case .privacyPolicy:
+                SafariView(url: URL(string: "https://apple.com")!)
+            }
         }
     }
 }

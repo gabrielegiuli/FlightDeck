@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B263C19A2940ED0C006C1920 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B263C1992940ED0C006C1920 /* SafariView.swift */; };
 		B28A90DA293CCA6A00EF7BBD /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A90D9293CCA6A00EF7BBD /* AccountView.swift */; };
 		B28A90DC293CCA7300EF7BBD /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A90DB293CCA7300EF7BBD /* AccountViewModel.swift */; };
 		B28A90DE293CE10700EF7BBD /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A90DD293CE10700EF7BBD /* UserInformation.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B263C1992940ED0C006C1920 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		B28A90D9293CCA6A00EF7BBD /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		B28A90DB293CCA7300EF7BBD /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		B28A90DD293CE10700EF7BBD /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				B2905A50293FFBAE005B4740 /* MailView.swift */,
+				B263C1992940ED0C006C1920 /* SafariView.swift */,
 			);
 			path = "UIKit Components";
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				B2D06FE0293A5C4E0086B5DD /* NewFlightViewModel.swift in Sources */,
 				B2D06FD4293A44990086B5DD /* DateExtensions.swift in Sources */,
 				B2905A57294008A8005B4740 /* MailData.swift in Sources */,
+				B263C19A2940ED0C006C1920 /* SafariView.swift in Sources */,
 				B2D06FAB2939F2D40086B5DD /* FlightListView.swift in Sources */,
 				B2D06FD1293A434E0086B5DD /* AirportActivity.swift in Sources */,
 				B2D06FA92939F2D40086B5DD /* FlightDeckApp.swift in Sources */,

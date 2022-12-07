@@ -50,6 +50,10 @@ struct AlertContext {
                                         dismissButton: .default(Text("Ok")))
     
     static let unableToLogout = AlertItem(title: Text("Logout Error"),
-                                        message: Text("We were unable to log you out. Please try again later and if this problem persists get in contact with customer support."),
-                                        dismissButton: .default(Text("Ok")))
+                                          message: Text("We were unable to log you out. Please try again later and if this problem persists get in contact with customer support."),
+                                          dismissButton: .default(Text("Ok")))
+    
+    static let unableToSaveUserData = AlertItem(title: Text("Server Error"),
+                                                message: Text("We were unable to save your user data. Please try again later and if this problem persists get in contact with customer support."),
+                                                dismissButton: .default(Text("Ok")))
 }
