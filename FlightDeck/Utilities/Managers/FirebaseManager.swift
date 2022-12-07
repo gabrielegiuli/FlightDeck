@@ -87,7 +87,7 @@ final class FirebaseManager: ObservableObject {
         let reference = database.collection("userInformations").document(userId)
         
         reference.getDocument { (documentSnapshot, error) in
-            if documentSnapshot == nil {
+            if let document = documentSnapshot, !document.exists {
                 do {
                     try reference.setData(from: UserInformation())
                     print("USERDATA ADDED")

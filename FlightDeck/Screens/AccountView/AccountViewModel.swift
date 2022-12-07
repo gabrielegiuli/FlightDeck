@@ -7,25 +7,26 @@
 
 import Foundation
 import MessageUI
-import Combine
 
 final class AccountViewModel: ObservableObject {
     
     private var manager = FirebaseManager.shared
     
-    @Published var userInformation = UserInformation()
+    @Published var userFirstName = ""
+    @Published var userLastName = ""
     @Published var userBirthDate = Date()
     
     @Published var alertItem: AlertItem?
     @Published var isShowingMailView = false
     @Published var result: Result<MFMailComposeResult, Error>? = nil
     
-    private var cancellables = Set<AnyCancellable>()
-    
     init() {
-        manager.$userInformation
-            .assign(to: \.userInformation, on: self)
-            .store(in: &cancellables)
+        refreshUserData()
+    }
+    
+    func refreshUserData() {
+        userFirstName = manager.userInformation.firstName
+        userLastName = manager.userInformation.lastName
     }
     
     func logOut() {

@@ -16,9 +16,9 @@ struct AccountView: View {
         NavigationStack {
             Form {
                 Section("User Details"){
-                    TextField("First Name", text: $viewModel.userInformation.firstName)
+                    TextField("First Name", text: $viewModel.userFirstName)
                         .autocorrectionDisabled()
-                    TextField("Last Name", text: $viewModel.userInformation.lastName)
+                    TextField("Last Name", text: $viewModel.userLastName)
                         .autocorrectionDisabled()
                     DatePicker("Birthday", selection: $viewModel.userBirthDate, displayedComponents: .date)
                 }
@@ -39,6 +39,7 @@ struct AccountView: View {
             }
             .navigationTitle("🧑‍✈️ Account")
         }
+        .onAppear { viewModel.refreshUserData() }
         .alert(item: $viewModel.alertItem) { alertItem in
             Alert(title: alertItem.title,
                   message: alertItem.message,
