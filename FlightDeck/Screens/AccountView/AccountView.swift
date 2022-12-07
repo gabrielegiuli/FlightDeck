@@ -16,9 +16,9 @@ struct AccountView: View {
         NavigationStack {
             Form {
                 Section("User Details"){
-                    TextField("First Name", text: $viewModel.userFirstName)
+                    TextField("First Name", text: $viewModel.userInformation.firstName)
                         .autocorrectionDisabled()
-                    TextField("Last Name", text: $viewModel.userLastName)
+                    TextField("Last Name", text: $viewModel.userInformation.lastName)
                         .autocorrectionDisabled()
                     DatePicker("Birthday", selection: $viewModel.userBirthDate, displayedComponents: .date)
                 }
@@ -39,12 +39,6 @@ struct AccountView: View {
             }
             .navigationTitle("🧑‍✈️ Account")
         }
-        .onDisappear {
-            viewModel.saveChanges()
-        }
-        .onAppear {
-            viewModel.loadUserData()
-        }
         .alert(item: $viewModel.alertItem) { alertItem in
             Alert(title: alertItem.title,
                   message: alertItem.message,
@@ -52,7 +46,7 @@ struct AccountView: View {
         }
         .sheet(isPresented: $viewModel.isShowingMailView) {
             MailView(result: self.$viewModel.result,
-                     mailData: viewModel.mailData)
+                     mailData: MailContext().supportEmail)
         }
     }
 }

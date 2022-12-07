@@ -13,59 +13,63 @@ struct LoginView: View {
     @StateObject var viewModel = LoginViewModel()
     
     var body: some View {
-        ZStack {
-            LinearGradient(gradient: Gradient(colors: [.indigo, .cyan]),
-                           startPoint: .topLeading,
-                           endPoint: .bottomTrailing)
-            .ignoresSafeArea(.all)
-            VStack {
-                Spacer()
+        VStack {
+            HStack { Spacer() }
+            Spacer()
+            VStack(alignment: .center, spacing: 20) {
                 Text("FlightDeck")
                     .font(.system(size: 35))
-                    .foregroundColor(.white)
                     .bold()
-                    .padding()
-                VStack(alignment: .center) {
+                VStack {
                     TextField("E-mail", text: $viewModel.emailString)
                         .textFieldStyle(.roundedBorder)
                         .keyboardType(.emailAddress)
                         .textInputAutocapitalization(.never)
                         .autocorrectionDisabled()
-                        .padding([.leading, .trailing])
                     SecureField("Password", text: $viewModel.passwordString)
                         .textFieldStyle(.roundedBorder)
                         .autocorrectionDisabled()
-                        .padding()
+                }
+                VStack {
                     Button {
                         viewModel.logIn()
                     } label: {
-                        Text("Log-In")
-                            .font(.title3)
+                        HStack {
+                            Spacer()
+                            Text("Log-in")
+                                .font(.title3)
+                            Spacer()
+                        }
                     }
                     .buttonStyle(.bordered)
                     .accentColor(.indigo)
-                    .padding()
+                    
                     Button {
                         viewModel.register()
                     } label: {
-                        Text("Sign-Up")
-                            .font(.title3)
+                        HStack {
+                            Spacer()
+                            Text("Sign-Up")
+                                .font(.title3)
+                            Spacer()
+                        }
                     }
                     .buttonStyle(.bordered)
                     .accentColor(.indigo)
                 }
-                .frame(width: 270, height: 320)
-                .preferredColorScheme(.light)
-                .background(Color(.systemBackground))
-                .cornerRadius(10)
-                Spacer()
             }
+            .frame(width: 270, height: 320)
+            .preferredColorScheme(.light)
+            .background(Color(.systemBackground))
+            .cornerRadius(10)
+            Spacer()
         }
         .alert(item: $viewModel.alertItem) { alertItem in
             Alert(title: alertItem.title,
                   message: alertItem.message,
                   dismissButton: alertItem.dismissButton)
         }
+        .frame(maxWidth: 300)
     }
 }
 

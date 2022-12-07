@@ -38,10 +38,7 @@ final class FirebaseManager: ObservableObject {
     }
     
     func register(withEmail email: String, password: String, completed: @escaping (Error?) -> Void) {
-        Auth.auth().createUser(withEmail: email, password: password) { [self] authResult, error in
-            if error == nil, let uid = authResult?.user.uid {
-                try? database.collection("userInformations").document(uid).setData(from: UserInformation())
-            }
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             completed(error)
         }
     }
@@ -61,7 +58,6 @@ final class FirebaseManager: ObservableObject {
             
             if let user = user {
                 self.addListeners(withUserId: user.uid)
-                self.readUserInformation(completed: {_ in})
                 let anonymous = user.isAnonymous ? "anonymously " : ""
                 print("User signed in \(anonymous)with user ID \(user.uid).")
             }
@@ -77,26 +73,34 @@ final class FirebaseManager: ObservableObject {
         }
         listenerRegistrations = []
         flights = []
+        userInformation = UserInformation()
     }
     
     private func addListeners(withUserId userId: String ) {
         listenerRegistrations.append(addFlightsListener(withUserId: userId))
+        listenerRegistrations.append(addUserListener(withUserId: userId))
+        print("PETO")
         // Add planes listener
     }
     
-    func readUserInformation(completed: @escaping (UserInformation?) -> Void) {
-        completed(self.userInformation)
-        if let user = user {
-            database
-                .collection("userInformations")
-                .document(user.uid)
-                .getDocument { (document, error) in
-                    if let document = document, document.exists {
-                        let result = try? document.data(as: UserInformation.self)
-                        completed(result)
-                        self.userInformation = result ?? UserInformation()
-                    }
+    private func addUserListener(withUserId userId: String) -> ListenerRegistration {
+        let reference = database.collection("userInformations").document(userId)
+        
+        reference.getDocument { (documentSnapshot, error) in
+            if documentSnapshot == nil {
+                do {
+                    try reference.setData(from: UserInformation())
+                    print("USERDATA ADDED")
+                } catch {
+                    print("FAILED TO ADD USERDATA")
                 }
+            }
+        }
+        
+        return reference.addSnapshotListener { (documentSnapshot, error) in
+            if let document = documentSnapshot, let data = try? document.data(as: UserInformation.self) {
+                self.userInformation = data
+            }
         }
     }
     

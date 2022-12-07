@@ -13,25 +13,19 @@ final class AccountViewModel: ObservableObject {
     
     private var manager = FirebaseManager.shared
     
-    @Published var userFirstName: String = ""
-    @Published var userLastName: String = ""
+    @Published var userInformation = UserInformation()
     @Published var userBirthDate = Date()
     
     @Published var alertItem: AlertItem?
     @Published var isShowingMailView = false
     @Published var result: Result<MFMailComposeResult, Error>? = nil
     
-    var mailData: MailData {
-        MailData(recipientEmail: "gabriele.giuli@proton.me",
-                 body: "\n\n----- DO NOT EDIT BELOW -----\nuid: \(manager.user?.uid ?? "nil")\ntime: \(Date.now)\nsys: \(UIDevice.current.systemVersion)",
-                 subject: "FlightDeck Help")
-    }
+    private var cancellables = Set<AnyCancellable>()
     
-    func loadUserData() {
-        manager.readUserInformation { userInformation in
-            self.userFirstName = userInformation?.firstName ?? ""
-            self.userLastName = userInformation?.lastName ?? ""
-        }
+    init() {
+        manager.$userInformation
+            .assign(to: \.userInformation, on: self)
+            .store(in: &cancellables)
     }
     
     func logOut() {
@@ -40,9 +34,5 @@ final class AccountViewModel: ObservableObject {
         } catch {
             alertItem = AlertContext.unableToLogout
         }
-    }
-    
-    func saveChanges() {
-        try? manager.saveUserInformation(userInformation: UserInformation(firstName: userFirstName, lastName: userLastName))
     }
 }
