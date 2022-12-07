@@ -79,7 +79,6 @@ final class FirebaseManager: ObservableObject {
     private func addListeners(withUserId userId: String ) {
         listenerRegistrations.append(addFlightsListener(withUserId: userId))
         listenerRegistrations.append(addUserListener(withUserId: userId))
-        print("PETO")
         // Add planes listener
     }
     
