@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MessageUI
 
 struct AccountView: View {
     
@@ -18,6 +19,14 @@ struct AccountView: View {
                     TextField("First Name", text: $viewModel.userFirstName)
                     TextField("Last Name", text: $viewModel.userLastName)
                     DatePicker("Birthday", selection: $viewModel.userBirthDate, displayedComponents: .date)
+                }
+                Section {
+                    Button {
+                        viewModel.isShowingMailView = true
+                    } label: {
+                        Label("Contact Us", systemImage: "square.and.pencil")
+                    }
+                    .disabled(!MFMailComposeViewController.canSendMail())
                 }
                 Button {
                     viewModel.logOut()
@@ -33,6 +42,15 @@ struct AccountView: View {
         }
         .onAppear {
             viewModel.loadUserData()
+        }
+        .alert(item: $viewModel.alertItem) { alertItem in
+            Alert(title: alertItem.title,
+                  message: alertItem.message,
+                  dismissButton: alertItem.dismissButton)
+        }
+        .sheet(isPresented: $viewModel.isShowingMailView) {
+            MailView(result: self.$viewModel.result,
+                     mailData: viewModel.mailData)
         }
     }
 }

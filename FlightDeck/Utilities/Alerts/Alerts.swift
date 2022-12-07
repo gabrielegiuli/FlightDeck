@@ -48,4 +48,8 @@ struct AlertContext {
     static let weakPassword = AlertItem(title: Text("Weak Password"),
                                         message: Text("The chosen password is too weak. The password should be at least six characters long."),
                                         dismissButton: .default(Text("Ok")))
+    
+    static let unableToLogout = AlertItem(title: Text("Logout Error"),
+                                        message: Text("We were unable to log you out. Please try again later and if this problem persists get in contact with customer support."),
+                                        dismissButton: .default(Text("Ok")))
 }

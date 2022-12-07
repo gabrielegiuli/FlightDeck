@@ -19,6 +19,7 @@ final class FirebaseManager: ObservableObject {
     @Published var flights: [Flight] = []
     @Published var user: User?
     @Published var hasCheckedUser = false
+    @Published var userInformation = UserInformation()
     
     var isLoggedIn: Bool {
         user != nil
@@ -52,7 +53,7 @@ final class FirebaseManager: ObservableObject {
     }
     
     private func registerStateListener() {
-        Auth.auth().addStateDidChangeListener { (auth, user) in // (4)
+        Auth.auth().addStateDidChangeListener { (auth, user) in
             print("Sign in state has changed.")
             self.hasCheckedUser = true
             self.user = user
@@ -60,6 +61,7 @@ final class FirebaseManager: ObservableObject {
             
             if let user = user {
                 self.addListeners(withUserId: user.uid)
+                self.readUserInformation(completed: {_ in})
                 let anonymous = user.isAnonymous ? "anonymously " : ""
                 print("User signed in \(anonymous)with user ID \(user.uid).")
             }
@@ -83,13 +85,16 @@ final class FirebaseManager: ObservableObject {
     }
     
     func readUserInformation(completed: @escaping (UserInformation?) -> Void) {
+        completed(self.userInformation)
         if let user = user {
             database
                 .collection("userInformations")
                 .document(user.uid)
                 .getDocument { (document, error) in
                     if let document = document, document.exists {
-                        completed(try? document.data(as: UserInformation.self))
+                        let result = try? document.data(as: UserInformation.self)
+                        completed(result)
+                        self.userInformation = result ?? UserInformation()
                     }
                 }
         }

@@ -55,7 +55,8 @@ struct LoginView: View {
                     .accentColor(.indigo)
                 }
                 .frame(width: 270, height: 320)
-                .background(.white)
+                .preferredColorScheme(.light)
+                .background(Color(.systemBackground))
                 .cornerRadius(10)
                 Spacer()
             }
