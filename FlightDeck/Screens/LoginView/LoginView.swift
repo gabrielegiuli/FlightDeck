@@ -11,6 +11,11 @@ struct LoginView: View {
     
     @Binding var isShowingLoginView: Bool
     @StateObject var viewModel = LoginViewModel()
+    @FocusState private var focusedTextField: LoginTextField?
+    
+    enum LoginTextField {
+        case email, password
+    }
     
     var body: some View {
         VStack {
@@ -22,16 +27,29 @@ struct LoginView: View {
                     .bold()
                 VStack {
                     TextField("E-mail", text: $viewModel.emailString)
-                        .textFieldStyle(.roundedBorder)
                         .keyboardType(.emailAddress)
+                        .autocorrectionDisabled()
                         .textInputAutocapitalization(.never)
-                        .autocorrectionDisabled()
-                    SecureField("Password", text: $viewModel.passwordString)
+                        .focused($focusedTextField, equals: .email)
                         .textFieldStyle(.roundedBorder)
+                    SecureField("Password", text: $viewModel.passwordString)
                         .autocorrectionDisabled()
+                        .focused($focusedTextField, equals: .password)
+                        .textFieldStyle(.roundedBorder)
+                }
+                .onSubmit {
+                    switch focusedTextField {
+                    case .email:
+                        focusedTextField = .password
+                    case .password:
+                        focusedTextField = nil
+                    default:
+                        break
+                    }
                 }
                 VStack {
                     Button {
+                        focusedTextField = nil
                         viewModel.logIn()
                     } label: {
                         HStack {
@@ -45,6 +63,7 @@ struct LoginView: View {
                     .accentColor(.indigo)
                     
                     Button {
+                        focusedTextField = nil
                         viewModel.register()
                     } label: {
                         HStack {

@@ -15,9 +15,13 @@ struct FlightListView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                List {
-                    ForEach(viewModel.flights) { flight in
-                        FlightCellView(flight: flight)
+                if viewModel.flights.isEmpty {
+                    EmptyFlightListView()
+                } else {
+                    List {
+                        ForEach(viewModel.flights) { flight in
+                            FlightCellView(flight: flight)
+                        }
                     }
                 }
                 Button {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B263C19A2940ED0C006C1920 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B263C1992940ED0C006C1920 /* SafariView.swift */; };
+		B263C19D2940F632006C1920 /* EmptyFlightListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B263C19C2940F632006C1920 /* EmptyFlightListView.swift */; };
 		B28A90DA293CCA6A00EF7BBD /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A90D9293CCA6A00EF7BBD /* AccountView.swift */; };
 		B28A90DC293CCA7300EF7BBD /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A90DB293CCA7300EF7BBD /* AccountViewModel.swift */; };
 		B28A90DE293CE10700EF7BBD /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A90DD293CE10700EF7BBD /* UserInformation.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		B263C1992940ED0C006C1920 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		B263C19C2940F632006C1920 /* EmptyFlightListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyFlightListView.swift; sourceTree = "<group>"; };
 		B28A90D9293CCA6A00EF7BBD /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		B28A90DB293CCA7300EF7BBD /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		B28A90DD293CE10700EF7BBD /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
@@ -92,6 +94,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B263C19B2940F61D006C1920 /* Empty Views */ = {
+			isa = PBXGroup;
+			children = (
+				B263C19C2940F632006C1920 /* EmptyFlightListView.swift */,
+			);
+			path = "Empty Views";
+			sourceTree = "<group>";
+		};
 		B28A90D8293CCA5E00EF7BBD /* AccountView */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +223,7 @@
 		B2D06FCC293A40F80086B5DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B263C19B2940F61D006C1920 /* Empty Views */,
 				B2905A4F293FFB97005B4740 /* UIKit Components */,
 				B2D06FDC293A57CC0086B5DD /* Buttons */,
 				B2D06FCD293A40FC0086B5DD /* Cells */,
@@ -378,6 +389,7 @@
 				B2D0CBF0293C1C610063FDC8 /* LoginView.swift in Sources */,
 				B28A90DE293CE10700EF7BBD /* UserInformation.swift in Sources */,
 				B2D0CBE4293B6D700063FDC8 /* StringExtensions.swift in Sources */,
+				B263C19D2940F632006C1920 /* EmptyFlightListView.swift in Sources */,
 				B2D06FE0293A5C4E0086B5DD /* NewFlightViewModel.swift in Sources */,
 				B2D06FD4293A44990086B5DD /* DateExtensions.swift in Sources */,
 				B2905A57294008A8005B4740 /* MailData.swift in Sources */,

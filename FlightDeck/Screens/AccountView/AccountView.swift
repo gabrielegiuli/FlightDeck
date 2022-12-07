@@ -11,9 +11,9 @@ import MessageUI
 struct AccountView: View {
     
     @StateObject private var viewModel = AccountViewModel()
-    @FocusState private var focusedTextField: FormTextField?
+    @FocusState private var focusedTextField: AccountTextField?
     
-    enum FormTextField {
+    enum AccountTextField {
         case firstName, lastName
     }
     
