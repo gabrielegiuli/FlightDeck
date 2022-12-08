@@ -54,7 +54,8 @@ final class FirebaseManager: ObservableObject {
     private func updatePlanesHistory() {
         var newPlanesHistory = [PlaneHistory]()
         for plane in planes {
-            newPlanesHistory.append(PlaneHistory(plane: plane, flights: []))
+            let correlatedFlights = flights.filter({ $0.planeId == plane.id })
+            newPlanesHistory.append(PlaneHistory(plane: plane, flights: correlatedFlights))
         }
         planesHistory = newPlanesHistory
     }

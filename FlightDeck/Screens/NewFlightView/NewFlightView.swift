@@ -15,7 +15,7 @@ struct NewFlightView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section {
+                Section("Plane Information") {
                     Picker("Plane", selection: $viewModel.selectedPlaneId) {
                         Text("Custom Plane")
                             .tag(nil as String?)
