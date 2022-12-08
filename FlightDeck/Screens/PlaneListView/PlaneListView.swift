@@ -8,10 +8,26 @@
 import SwiftUI
 
 struct PlaneListView: View {
+    
+    @StateObject var viewModel = PlaneListViewModel()
+    
     var body: some View {
         NavigationStack {
             VStack {
-                Text("Planes go here")
+                if viewModel.planeHistorises.isEmpty {
+                    EmptyPlaneListView()
+                } else {
+                    List {
+                        ForEach(viewModel.planeHistorises) { planeHistory in
+                            PlaneCellView(planeHistory: planeHistory)
+                        }
+                    }
+                }
+                Button {
+                    viewModel.addNewPlane()
+                } label: {
+                    Label("Add New Plane", systemImage: "plus.circle.fill")
+                }
             }
             .navigationTitle("✈️ Planes")
         }

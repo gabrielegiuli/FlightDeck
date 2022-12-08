@@ -16,7 +16,10 @@ final class FirebaseManager: ObservableObject {
     private var database = Firestore.firestore()
     private var listenerRegistrations: [ListenerRegistration] = []
     
+    private var planes: [Plane] = []
+    
     @Published var flights: [Flight] = []
+    @Published var planeHistory: [PlaneHistory] = []
     @Published var user: User?
     @Published var hasCheckedUser = false
     @Published var userInformation = UserInformation()

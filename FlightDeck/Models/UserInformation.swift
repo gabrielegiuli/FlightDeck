@@ -6,8 +6,12 @@
 //
 
 import Foundation
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 struct UserInformation: Codable {
+    
+    @ServerTimestamp var createdTime: Timestamp?
     var firstName: String
     var lastName: String
     var birthDate: Date

@@ -78,7 +78,6 @@ struct LoginView: View {
                 }
             }
             .frame(width: 270, height: 320)
-            .preferredColorScheme(.light)
             .background(Color(.systemBackground))
             .cornerRadius(10)
             Spacer()
