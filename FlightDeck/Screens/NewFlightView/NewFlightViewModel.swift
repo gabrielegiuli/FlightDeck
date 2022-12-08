@@ -12,8 +12,6 @@ final class NewFlightViewModel: ObservableObject {
     
     @Published var departureICAO = AirportICAO()
     @Published var arrivalICAO = AirportICAO()
-    @Published var departureDate = Date()
-    @Published var arrivalDate = Date()
     @Published var activities = [AirportActivity]()
     @Published var alertItem: AlertItem?
     @Published var planes = [Plane]()
@@ -21,6 +19,22 @@ final class NewFlightViewModel: ObservableObject {
     
     private var manager = FirebaseManager.shared
     private var cancellables = Set<AnyCancellable>()
+    
+    @Published var departureDate = Date() {
+        didSet {
+            if arrivalDate < departureDate {
+                arrivalDate = departureDate
+            }
+        }
+    }
+    
+    @Published var arrivalDate = Date() {
+        didSet {
+            if arrivalDate < departureDate {
+                departureDate = arrivalDate
+            }
+        }
+    }
     
     init() {
         manager.$planes
@@ -40,6 +54,12 @@ final class NewFlightViewModel: ObservableObject {
                 return false
             }
         }
+        
+        guard arrivalDate.timeIntervalSince(departureDate) > 0 else {
+            alertItem = AlertContext.invalidFlightTime
+            return false
+        }
+        
         return true
     }
     

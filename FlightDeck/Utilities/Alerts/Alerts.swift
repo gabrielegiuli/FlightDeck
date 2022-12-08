@@ -23,6 +23,10 @@ struct AlertContext {
                                        message: Text("Plase check that the airports' names and try again."),
                                        dismissButton: .default(Text("Ok")))
     
+    static let invalidFlightTime = AlertItem(title: Text("Invalid Flight Time"),
+                                             message: Text("Plase check the departure and arrival times and try again."),
+                                             dismissButton: .default(Text("Ok")))
+    
     static func localizedError(title: String, error: Error) -> AlertItem {
         AlertItem(title: Text(title),
                   message: Text(error.localizedDescription),
