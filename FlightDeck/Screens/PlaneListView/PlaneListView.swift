@@ -14,11 +14,11 @@ struct PlaneListView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                if viewModel.planeHistorises.isEmpty {
+                if viewModel.planesHistory.isEmpty {
                     EmptyPlaneListView()
                 } else {
                     List {
-                        ForEach(viewModel.planeHistorises) { planeHistory in
+                        ForEach(viewModel.planesHistory) { planeHistory in
                             PlaneCellView(planeHistory: planeHistory)
                         }
                     }

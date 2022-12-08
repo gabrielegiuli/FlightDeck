@@ -9,11 +9,12 @@ import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-struct Plane: Codable {
+struct Plane: Codable, Identifiable {
     @DocumentID var id: String?
     @ServerTimestamp var createdTime: Timestamp?
     var model: String
     var registration: String
+    var userId: String?
 }
 
 struct PlaneHistory: Identifiable {

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 final class NewFlightViewModel: ObservableObject {
     
@@ -15,7 +16,17 @@ final class NewFlightViewModel: ObservableObject {
     @Published var arrivalDate = Date()
     @Published var activities = [AirportActivity]()
     @Published var alertItem: AlertItem?
+    @Published var planes = [Plane]()
+    @Published var selectedPlaneId: String?
+    
     private var manager = FirebaseManager.shared
+    private var cancellables = Set<AnyCancellable>()
+    
+    init() {
+        manager.$planes
+            .assign(to: \.planes, on: self)
+            .store(in: &cancellables)
+    }
     
     func checkFormIsValid() -> Bool {
         guard departureICAO.isValid && arrivalICAO.isValid else {
@@ -41,7 +52,8 @@ final class NewFlightViewModel: ObservableObject {
                                arrivalAirport: Airport(ICAO: arrivalICAO),
                                departureDate: departureDate,
                                arrivalDate: arrivalDate,
-                               activities: activities)
+                               activities: activities,
+                               planeId: selectedPlaneId)
         
         do {
             try manager.addNewFlight(flight: newFlight)

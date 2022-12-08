@@ -15,6 +15,16 @@ struct NewFlightView: View {
     var body: some View {
         NavigationStack {
             Form {
+                Section {
+                    Picker("Plane", selection: $viewModel.selectedPlaneId) {
+                        Text("Custom Plane")
+                            .tag(nil as String?)
+                        ForEach(viewModel.planes) { plane in
+                            Text(plane.registration)
+                                .tag(plane.id)
+                        }
+                    }
+                }
                 Section("Departure") {
                     TextField("ICAO", text: $viewModel.departureICAO.text)
                         .keyboardType(.alphabet)

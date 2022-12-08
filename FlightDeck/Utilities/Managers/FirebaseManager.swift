@@ -16,10 +16,9 @@ final class FirebaseManager: ObservableObject {
     private var database = Firestore.firestore()
     private var listenerRegistrations: [ListenerRegistration] = []
     
-    private var planes: [Plane] = []
-    
+    @Published var planes: [Plane] = []
+    @Published var planesHistory: [PlaneHistory] = []
     @Published var flights: [Flight] = []
-    @Published var planeHistory: [PlaneHistory] = []
     @Published var user: User?
     @Published var hasCheckedUser = false
     @Published var userInformation = UserInformation()
@@ -52,6 +51,14 @@ final class FirebaseManager: ObservableObject {
         }
     }
     
+    private func updatePlanesHistory() {
+        var newPlanesHistory = [PlaneHistory]()
+        for plane in planes {
+            newPlanesHistory.append(PlaneHistory(plane: plane, flights: []))
+        }
+        planesHistory = newPlanesHistory
+    }
+    
     private func registerStateListener() {
         Auth.auth().addStateDidChangeListener { (auth, user) in
             print("Sign in state has changed.")
@@ -76,12 +83,14 @@ final class FirebaseManager: ObservableObject {
         }
         listenerRegistrations = []
         flights = []
+        planes = []
         userInformation = UserInformation()
     }
     
     private func addListeners(withUserId userId: String ) {
         listenerRegistrations.append(addFlightsListener(withUserId: userId))
         listenerRegistrations.append(addUserListener(withUserId: userId))
+        listenerRegistrations.append(addPlanesListener(withUserId: userId))
         // Add planes listener
     }
     
@@ -116,6 +125,22 @@ final class FirebaseManager: ObservableObject {
                     self.flights = querySnapshot.documents.compactMap { document -> Flight? in
                         try? document.data(as: Flight.self)
                     }
+                    self.updatePlanesHistory()
+                }
+            }
+    }
+    
+    private func addPlanesListener(withUserId userId: String) -> ListenerRegistration {
+        database
+            .collection("planes")
+            .whereField("userId", isEqualTo: userId)
+            .order(by: "createdTime", descending: true)
+            .addSnapshotListener { (querySnapshot, error) in
+                if let querySnapshot = querySnapshot {
+                    self.planes = querySnapshot.documents.compactMap { document -> Plane? in
+                        try? document.data(as: Plane.self)
+                    }
+                    self.updatePlanesHistory()
                 }
             }
     }

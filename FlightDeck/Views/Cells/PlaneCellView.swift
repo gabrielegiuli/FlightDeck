@@ -13,6 +13,7 @@ struct PlaneCellView: View {
     
     var body: some View {
         HStack {
+    
             VStack(alignment: .leading) {
                 Text(planeHistory.plane.model)
                     .font(.caption)
@@ -21,7 +22,6 @@ struct PlaneCellView: View {
                 Text(planeHistory.plane.registration)
                     .font(.title2)
                     .fontWeight(.semibold)
-                Spacer()
             }
             Spacer()
             VStack(alignment: .center, spacing: 5) {
