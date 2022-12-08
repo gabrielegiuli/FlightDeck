@@ -15,16 +15,6 @@ struct NewFlightView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Plane Information") {
-                    Picker("Plane", selection: $viewModel.selectedPlaneId) {
-                        Text("Custom Plane")
-                            .tag(nil as String?)
-                        ForEach(viewModel.planes) { plane in
-                            Text(plane.registration)
-                                .tag(plane.id)
-                        }
-                    }
-                }
                 Section("Departure") {
                     TextField("ICAO", text: $viewModel.departureICAO.text)
                         .keyboardType(.alphabet)
@@ -68,6 +58,17 @@ struct NewFlightView: View {
                         .autocorrectionDisabled()
                         .textInputAutocapitalization(.characters)
                     DatePicker("Off-Block", selection: $viewModel.arrivalDate)
+                }
+                Section("Plane Information") {
+                    Picker("Plane", selection: $viewModel.selectedPlaneId) {
+                        Text("Custom Plane")
+                            .tag(nil as String?)
+                        ForEach(viewModel.planes) { plane in
+                            Text(plane.registration)
+                                .tag(plane.id)
+                        }
+                    }
+                    Text(viewModel.selectedPlane?.model ?? "")
                 }
                 Section {
                     Button {

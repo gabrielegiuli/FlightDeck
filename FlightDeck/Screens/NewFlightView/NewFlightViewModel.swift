@@ -36,6 +36,10 @@ final class NewFlightViewModel: ObservableObject {
         }
     }
     
+    var selectedPlane: Plane? {
+        planes.filter({ $0.id == selectedPlaneId }).first
+    }
+    
     init() {
         manager.$planes
             .assign(to: \.planes, on: self)
